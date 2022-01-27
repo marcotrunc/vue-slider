@@ -19,7 +19,21 @@ const root = new Vue({
         },
         indexAssignment(index) {
             return this.currentIndex = index;
+        },
+        prevStep() {
+            if (this.currentIndex === 0) {
+                this.currentIndex = this.imageUrls.length - 1;
+                console.log(this.currentIndex);
+            } else {
+                this.currentIndex = this.currentIndex - 1;
+            }
+        },
+        nextStep() {
+            if (this.currentIndex === this.imageUrls.length - 1) {
+                this.currentIndex = 0;
+            } else {
+                this.currentIndex = this.currentIndex + 1;
+            }
         }
-
     }
 })
