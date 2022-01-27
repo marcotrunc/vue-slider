@@ -45,10 +45,14 @@ const root = new Vue({
                 this.btnText = 'Stop';
                 return this.autoplay
             } else {
-                clearInterval(this.myInterval);
+                this.stopAutoplay();
                 this.btnText = 'Play';
             }
             console.log(this.autoplay)
+        },
+        stopAutoplay() {
+            clearInterval(this.myInterval);
+            this.autoplay = 0;
         }
     }
 });

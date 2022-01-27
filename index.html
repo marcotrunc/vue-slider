@@ -21,13 +21,14 @@
     <div class="container vh-100">
       <div class="row">
         <div class="col-3 d-flex align-items-center justify-content-center">
-          <i class="fas fa-angle-left fa-4x" @click="prevStep"></i>
+          <i class="fas fa-angle-left fa-4x" @click="prevStep" @mouseover="stopAutoplay"
+            @mouseleave="startAutoplay"></i>
         </div>
         <div class="col-6">
           <div class="slider d-flex align-items-center">
             <img v-for="(imageUrl,index) in imageUrls" class="img-fluid" :src="`images/image${index + 1}.jpg`"
               v-if='isActive(index)' alt="" />
-            <div class=" slider-dots">
+            <div class=" slider-dots" @mouseover="stopAutoplay" @mouseleave="startAutoplay">
               <div v-for="(dot, index) in imageUrls" class="dot mx-2" :class="isActive(index) ?  'active' : '' "
                 @click="indexAssignment(index)">
               </div>
@@ -35,7 +36,8 @@
           </div>
         </div>
         <div class="col-3 d-flex align-items-center justify-content-center">
-          <i class="fas fa-angle-right fa-4x" @click="nextStep"></i>
+          <i class="fas fa-angle-right fa-4x" @click="nextStep" @mouseover="stopAutoplay"
+            @mouseleave="startAutoplay"></i>
         </div>
       </div>
       <div id="btn-container" class="d-flex justify-content-center ">
