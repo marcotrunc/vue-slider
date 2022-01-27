@@ -12,6 +12,9 @@ const root = new Vue({
             'images/image4.jpg',
         ],
         currentIndex: 0,
+        autoplay: 0,
+        myInterval: 0,
+        btnText: 'play',
     },
     methods: {
         isActive(index) {
@@ -34,6 +37,18 @@ const root = new Vue({
             } else {
                 this.currentIndex = this.currentIndex + 1;
             }
+        },
+        startAutoplay() {
+            if (this.autoplay === 0) {
+                this.myInterval = setInterval(this.nextStep, 3000)
+                this.autoplay = 1;
+                this.btnText = 'Stop';
+                return this.autoplay
+            } else {
+                clearInterval(this.myInterval);
+                this.btnText = 'Play';
+            }
+            console.log(this.autoplay)
         }
     }
-})
+});

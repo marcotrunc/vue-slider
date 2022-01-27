@@ -30,3 +30,7 @@
 .slider-dots .dot.active {
   background-color: dodgerblue;
 }
+
+#btn-container{
+  padding-top: 70px;
+}
