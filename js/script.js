@@ -16,6 +16,9 @@ const root = new Vue({
     methods: {
         isActive(index) {
             return this.currentIndex === index ? true : false;
+        },
+        indexAssignment(index) {
+            return this.currentIndex = index;
         }
 
     }
