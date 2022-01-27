@@ -26,9 +26,9 @@
         <div class="col-6">
           <div class="slider d-flex align-items-center">
             <img v-for="(imageUrl,index) in imageUrls" class="img-fluid" :src="`images/image${index + 1}.jpg`"
-              v-if="currentIndex === index" alt="" />
+              v-if='isActive(index)' alt="" />
             <div class=" slider-dots">
-              <div v-for="(dot, index) in imageUrls" class="dot mx-2" :class="currentIndex === index ?  'active' : '' ">
+              <div v-for="(dot, index) in imageUrls" class="dot mx-2" :class="isActive(index) ?  'active' : '' ">
               </div>
             </div>
           </div>

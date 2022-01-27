@@ -12,5 +12,11 @@ const root = new Vue({
             'images/image4.jpg',
         ],
         currentIndex: 0,
+    },
+    methods: {
+        isActive(index) {
+            return this.currentIndex === index ? true : false;
+        }
+
     }
 })
