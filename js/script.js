@@ -24,19 +24,12 @@ const root = new Vue({
             return this.currentIndex = index;
         },
         prevStep() {
-            if (this.currentIndex === 0) {
-                this.currentIndex = this.imageUrls.length - 1;
-                console.log(this.currentIndex);
-            } else {
-                this.currentIndex = this.currentIndex - 1;
-            }
+            if (this.currentIndex === 0) this.currentIndex = this.imageUrls.length - 1;
+            else this.currentIndex = this.currentIndex - 1;
         },
         nextStep() {
-            if (this.currentIndex === this.imageUrls.length - 1) {
-                this.currentIndex = 0;
-            } else {
-                this.currentIndex = this.currentIndex + 1;
-            }
+            if (this.currentIndex === this.imageUrls.length - 1) this.currentIndex = 0;
+            else this.currentIndex = this.currentIndex + 1;
         },
         startAutoplay() {
             if (this.autoplay === 0) {
@@ -53,6 +46,9 @@ const root = new Vue({
         stopAutoplay() {
             clearInterval(this.myInterval);
             this.autoplay = 0;
-        }
+        },
+    },
+    created() {
+        this.startAutoplay();
     }
 });
